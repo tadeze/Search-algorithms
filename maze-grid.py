@@ -40,7 +40,7 @@ class Exploremaze:
     bfs_visited=[]    
     def __init__(self,maze):
             self.maze = maze
-             
+    #Greedy         
     def exploreMaze(self,x,y):
         #If the maze is out of grid return false
         if x>self.maze.size[0]-1 or y<0 or x<0 or y>self.maze.size[1]-1:
@@ -83,6 +83,7 @@ class Exploremaze:
             maze.maze[path[0]][path[1]]="#"
         self.displayMaze(maze)   
         print len(visited)
+    #Depth first search
     def dfs(self,x,y):
         s=[]
         s.append((x,y))
@@ -101,7 +102,7 @@ class Exploremaze:
                 s.append((x,y+1))
                 s.append((x,y-1))
         return False
-    
+    #Bread first search
     def bfs(self,x,y):
         q=Queue.Queue()
         q.put((x,y))
@@ -119,11 +120,7 @@ class Exploremaze:
                 q.put((x,y+1))
                 q.put((x,y-1))   
                         
-            
-         
-         
-         
-         
+#main           
 if __name__=="__main__":
     maze = Maze(8,336)
    # maze.generateMaze(8,36)
